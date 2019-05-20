@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.niaobulashi.mapper.GoodsMapper">
+
+    <resultMap id="baseMap" type="com.niaobulashi.entity.Goods">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="VARCHAR"/>
+        <result property="image" column="image" jdbcType="VARCHAR"/>
+        <result property="brand" column="brand" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询所有-->
+    <select id="findAll" resultMap="baseMap">
+        select * from td_goods
+    </select>
+
+    <!--条件查询-->
+    <select id="findByPage" parameterType="com.niaobulashi.entity.Goods" resultMap="baseMap">
+        select * from td_goods where 1=1
+        <if test="brand != null">
+            and brand like concat('%', #{brand}, '%')
+        </if>
+        <if test="title != null">
+            and title like concat('%', #{title}, '%')
+        </if>
+    </select>
+    
+    <!--根据id查询-->
+    <select id="findById" parameterType="Long" resultMap="baseMap">
+        select * from td_goods where id = #{id}
+    </select>
+    
+    <!--添加数据-->
+    <insert id="insert" parameterType="com.niaobulashi.entity.Goods">
+        insert into td_goods(title, price, image, brand)
+        values (#{title}, #{price}, #{image}, #{brand})
+    </insert>
+
+    <!--更新数据-->
+    <update id="update" parameterType="com.niaobulashi.entity.Goods">
+        update td_goods
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="brand != null">
+                brand = #{brand},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--删除-->
+    <delete id="delete" parameterType="Long">
+        delete from td_goods where id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niaobulashi.mapper.UserMapper">
+    <!--查询所有-->
+    <select id="findAll" resultType="com.niaobulashi.entity.User">
+        select * from td_user
+    </select>
+
+    <!--根据Id查询-->
+    <select id="findById" resultType="com.niaobulashi.entity.User" parameterType="Long">
+        select * from td_user where id = #{id}
+    </select>
+
+    <!--创建-->
+    <insert id="create" parameterType="com.niaobulashi.entity.User">
+        insert into td_user(username, password) values (#{username},#{password})
+    </insert>
+
+    <!--删除-->
+    <delete id="delete" parameterType="Long">
+        delete td_user where id = #{id}
+    </delete>
+
+    <!--更新-->
+    <update id="update" parameterType="com.niaobulashi.entity.User">
+        update td_user set where 1=1
+        <if test="username != null">
+            username = #{username},
+        </if>
+        <if test="password != null">
+            password = #{password}
+        </if>
+        where id = #{id}
+    </update>
+
+    <!--根据用户名查询-->
+    <select id="findByName" resultType="com.niaobulashi.entity.User" parameterType="String">
+        select * from td_user where username like concat('%', #{username}, '%')
+    </select>
+</mapper>
