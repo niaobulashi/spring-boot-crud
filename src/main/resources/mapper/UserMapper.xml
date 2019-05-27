@@ -35,6 +35,6 @@
 
     <!--根据用户名查询-->
     <select id="findByName" resultType="com.niaobulashi.entity.User" parameterType="String">
-        select * from td_user where username like concat('%', #{username}, '%')
+        select * from td_user where username = #{username}
     </select>
 </mapper>

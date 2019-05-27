@@ -12,23 +12,16 @@ public class Result implements Serializable {
     // 判断结果
     private boolean success;
     // 返回信息
-    private String messgae;
+    private String message;
 
     public Result() {
     }
 
-    public Result(boolean success, String messgae) {
+    public Result(boolean success, String message) {
         this.success = success;
-        this.messgae = messgae;
+        this.message = message;
     }
 
-    public String getMessgae() {
-        return messgae;
-    }
-
-    public void setMessgae(String messgae) {
-        this.messgae = messgae;
-    }
 
     public boolean isSuccess() {
         return success;
@@ -36,5 +29,13 @@ public class Result implements Serializable {
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
