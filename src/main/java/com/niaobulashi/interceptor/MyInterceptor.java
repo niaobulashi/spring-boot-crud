@@ -22,17 +22,17 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 public class MyInterceptor {
 
-    @Pointcut("within (com.niaobulashi.controller..*) && !within(com.niaobulashi.controller.LoginController)")
+    @Pointcut("within (com.niaobulashi.controller..*) && !within(com.niaobulashi.controller.admin.LoginController)")
     public void pointCut() {
 
     }
 
     @Around("pointCut()")
-    public Object trackinfo(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object trackInfo(ProceedingJoinPoint joinPoint) throws Throwable {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request =attributes.getRequest();
         User user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
+        if (user == null) {
             System.out.println("--------用户登陆-------");
             // 手动转发/login的映射路径
             attributes.getResponse().sendRedirect("/login");

@@ -1,4 +1,4 @@
-package com.niaobulashi.controller;
+package com.niaobulashi.controller.admin;
 
 import com.niaobulashi.entity.Result;
 import com.niaobulashi.entity.User;
@@ -92,8 +92,8 @@ public class LoginController {
      * @return
      */
     @GetMapping("/register")
-    public String resgiter() {
-        return "/home/resgiter";
+    public String regiter() {
+        return "/home/register";
     }
 
     public static void main(String[] args) {

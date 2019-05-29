@@ -6,9 +6,9 @@ import com.niaobulashi.entity.Goods;
 import com.niaobulashi.entity.PageBean;
 import com.niaobulashi.mapper.GoodsMapper;
 import com.niaobulashi.service.GoodsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,7 +18,8 @@ import java.util.List;
  */
 @Service
 public class GoodsServiceImpl implements GoodsService {
-    @Resource
+
+    @Autowired
     private GoodsMapper goodsMapper;
 
     /**

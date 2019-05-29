@@ -1,4 +1,4 @@
-package com.niaobulashi.controller;
+package com.niaobulashi.controller.admin;
 
 import com.niaobulashi.entity.User;
 import com.niaobulashi.service.UserService;

@@ -3,6 +3,7 @@ package com.niaobulashi.service.impl;
 import com.niaobulashi.entity.User;
 import com.niaobulashi.mapper.UserMapper;
 import com.niaobulashi.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,7 +17,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
     @Override
