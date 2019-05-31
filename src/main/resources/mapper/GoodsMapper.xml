@@ -34,9 +34,9 @@
     </select>
     
     <!--添加数据-->
-    <insert id="insert" parameterType="com.niaobulashi.entity.Goods">
-        insert into td_goods(title, price, image, brand)
-        values (#{title}, #{price}, #{image}, #{brand})
+    <insert id="create" parameterType="com.niaobulashi.entity.Goods">
+        INSERT INTO tb_goods(title, price, image, brand)
+        VALUES(#{title}, #{price}, #{image}, #{brand})
     </insert>
 
     <!--更新数据-->
