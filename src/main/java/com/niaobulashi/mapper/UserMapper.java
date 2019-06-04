@@ -2,7 +2,6 @@ package com.niaobulashi.mapper;
 
 import com.niaobulashi.entity.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
